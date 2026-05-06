@@ -75,3 +75,18 @@ Key architectural decisions:
 - Samsung USB drivers must be installed for ADB to detect the S24 Ultra.
 - Add project folder + `%USERPROFILE%\.gradle` to Windows Defender exclusions for faster builds.
 - If paths exceed 260 chars, enable long paths or move project closer to drive root.
+
+## CI
+
+`.github/workflows/build.yml` runs on push to `main`/`master`, on PRs, and on manual `workflow_dispatch`. It uses JDK 17 + Gradle 8.11.1 (the gradle-actions setup-gradle action installs Gradle directly — the wrapper jar is **not** checked in). Produces:
+
+- `android-launcher-debug-apk` — every run.
+- `android-launcher-release-apk` — best-effort (continues on error since release signing is debug-keystore-fallback).
+
+Local builds: regenerate the wrapper once with `gradle wrapper --gradle-version 8.11.1 && chmod +x gradlew`.
+
+See `dev.md` for the full sideload + install flow (download artifact → `adb install`).
+
+## Branding Note
+
+User-visible strings show **"Launcher"** (was renamed from "Nova Launcher" — that name is trademarked). The internal applicationId / package (`com.launcher.nova`) still uses the codename — that's not user-visible. Do not reintroduce "Nova Launcher" as a display name, theme name, project name, or artifact name.
