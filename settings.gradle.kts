@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NovaLauncher"
+rootProject.name = "Launcher"
 include(":app")

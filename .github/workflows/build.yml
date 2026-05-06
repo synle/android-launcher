@@ -30,7 +30,7 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: nova-launcher-debug-apk
+          name: android-launcher-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
 
@@ -42,6 +42,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: nova-launcher-release-apk
+          name: android-launcher-release-apk
           path: app/build/outputs/apk/release/*.apk
           if-no-files-found: warn

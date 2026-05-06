@@ -1,4 +1,4 @@
-# Nova Launcher
+# Launcher
 
 Custom Android home screen replacement built with Kotlin. Targets Android 15 on Samsung Galaxy S24 Ultra. Developed on Windows 11.
 
@@ -99,7 +99,7 @@ The device wallpaper shows through a transparent window background. A broadcast 
 android-launcher/
 │
 ├── build.gradle.kts ·················· Root build: plugin versions (AGP 8.7.3, Kotlin 2.1.0)
-├── settings.gradle.kts ··············· Project name "NovaLauncher", includes :app module
+├── settings.gradle.kts ··············· Project name "Launcher", includes :app module
 ├── gradle.properties ················· JVM args (-Xmx2048m), AndroidX, Kotlin style
 ├── gradlew ··························· Gradle wrapper script (macOS/Linux)
 ├── gradlew.bat ······················· Gradle wrapper script (Windows) ← USE THIS
@@ -396,7 +396,7 @@ Vertical `LinearLayout`:
 ### `themes.xml` — Transparent Theme
 
 ```xml
-Theme.NovaLauncher (parent: Theme.Material3.DayNight.NoActionBar)
+Theme.Launcher (parent: Theme.Material3.DayNight.NoActionBar)
   ├── windowShowWallpaper = true    ← System wallpaper composites behind this activity
   └── windowBackground = transparent ← Activity window is see-through
 ```
@@ -408,7 +408,7 @@ Theme.NovaLauncher (parent: Theme.Material3.DayNight.NoActionBar)
 | File | Purpose |
 |---|---|
 | `build.gradle.kts` (root) | Declares plugin versions: AGP 8.7.3, Kotlin 2.1.0 |
-| `settings.gradle.kts` | Project name "NovaLauncher", includes `:app`, configures Maven repos |
+| `settings.gradle.kts` | Project name "Launcher", includes `:app`, configures Maven repos |
 | `gradle.properties` | JVM heap 2048m, AndroidX enabled, non-transitive R classes |
 | `app/build.gradle.kts` | minSdk 26, targetSdk 35, ViewBinding on, R8 on release, debug suffix `.debug` |
 | `app/proguard-rules.pro` | Keeps `com.launcher.nova.model.**` from being obfuscated by R8 |
@@ -466,7 +466,7 @@ Total: ~320 lines of Kotlin. The whole app reads in under 15 minutes.
 
 On One UI, the standard "Choose launcher" dialog may not appear. Use this instead:
 
-**Settings > Apps > Default apps > Home app > select "Nova Launcher"**
+**Settings > Apps > Default apps > Home app > select "Launcher"**
 
 ### One UI Interference
 
@@ -641,7 +641,7 @@ adb shell am start -n com.launcher.nova.debug/com.launcher.nova.LauncherActivity
 
 ### Set as Default Launcher
 
-After installing: **Settings > Apps > Default apps > Home app > "Nova Launcher"**
+After installing: **Settings > Apps > Default apps > Home app > "Launcher"**
 
 ### Wireless Debugging
 
@@ -705,7 +705,7 @@ adb uninstall com.launcher.nova.debug
 |---|---|
 | Crashes on launch | Check Logcat for red stack trace |
 | Black screen, no apps | `QUERY_ALL_PACKAGES` permission issue. Rebuild and reinstall |
-| Not in Home app list | Force stop: Settings > Apps > Nova Launcher > Force stop. Retry |
+| Not in Home app list | Force stop: Settings > Apps > Launcher > Force stop. Retry |
 | `INSTALL_FAILED_UPDATE_INCOMPATIBLE` | `adb uninstall com.launcher.nova.debug` then reinstall |
 | Wallpaper not showing | Set app as default launcher first. Verify `themes.xml` has `windowShowWallpaper=true` |
 | Breakpoints not hitting | Use Debug (Shift+F9), not Run (Shift+F10) |

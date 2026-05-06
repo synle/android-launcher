@@ -1,4 +1,4 @@
-# Developer Guide — Nova Launcher
+# Developer Guide — Launcher
 
 A custom Android home screen launcher (Kotlin, native Android, MVVM).
 
@@ -36,13 +36,13 @@ Debug builds use applicationId `com.launcher.nova.debug`; release uses `com.laun
 ## Install on phone (sideload)
 
 1. Go to the [Actions tab](../../actions) and pick the latest successful **Build APK** run.
-2. Scroll to the **Artifacts** section and download `nova-launcher-debug-apk` (or `nova-launcher-release-apk`).
+2. Scroll to the **Artifacts** section and download `android-launcher-debug-apk` (or `android-launcher-release-apk`).
 3. Unzip — you'll get `app-debug.apk` (or `app-release.apk`).
 4. On the phone:
    - **Via ADB**: `adb install -r app-debug.apk`
    - **Via file transfer**: copy the APK to the phone, open it from Files, and accept "Install from unknown source" when prompted.
 5. After install, set Nova as your default launcher:
-   - Settings → Apps → Default apps → Home app → **Nova Launcher (Debug)**
+   - Settings → Apps → Default apps → Home app → **Launcher (Debug)**
    - Or press the Home button — Android will offer a chooser.
 6. To revert to the Samsung One UI launcher:
    ```bash
